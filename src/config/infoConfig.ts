@@ -3,8 +3,8 @@ export * from './education'
 export * from './career'
 
 // personal info
-export const name = '黎博凯Keaton Li'
-export const headline = 'SoftWare Engineer at Shenzhen.'
+export const name = '黎博凯'
+export const headline = '深圳软件工程师.'
 export const introduction =
   "Coucou Les Amis! My name is Derek Hu. I'm from Hubei and an alumnus of BUPT, UChicago, and Tsinghua. I’ve been teaching Computer Science at SCLS since 2020."
 export const email = 'li_bo_kai@qq.com'
