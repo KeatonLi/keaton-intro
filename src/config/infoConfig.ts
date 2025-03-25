@@ -4,14 +4,14 @@ export * from './career'
 
 // personal info
 export const name = '黎博凯'
-export const headline = '深圳软件工程师.'
+export const headline = '别浪费天赋与热爱.'
 export const introduction =
-  "Coucou Les Amis! My name is Derek Hu. I'm from Hubei and an alumnus of BUPT, UChicago, and Tsinghua. I’ve been teaching Computer Science at SCLS since 2020."
+  "你好！我是黎博凯，目前的职业是 Java 开发工程师，还会一点 Golang 与 Python 语言，爱好是羽毛球健身和打电子游戏."
 export const email = 'li_bo_kai@qq.com'
-export const githubUsername = 'derekhut'
+export const githubUsername = 'KeatonLi'
 
 // about page
-export const aboutMeHeadline = 'Who Are You and Why Should I Care?'
+export const aboutMeHeadline = '我是谁?你该注意哪些事情'
 export const aboutParagraphs = [
   "Coucou Les Amis! My name is Derek Hu. I'm from Hubei and an alumnus of BUPT, UChicago, and Tsinghua. I’ve been teaching Computer Science at SCLS since 2020.",
   'Currently I am working on a new course called AI Camp, an innovative course where high school students create real-world products and startups while exploring the frontiers of AI.',
@@ -19,7 +19,7 @@ export const aboutParagraphs = [
 ]
 
 // blog
-export const blogHeadLine = "What I've thinking about."
+export const blogHeadLine = "我在想什么."
 export const blogIntro =
   "I've written something about AI, programming and life."
 

@@ -34,7 +34,7 @@ export const awards: Array<ActivityItemType> = [
 ]
 
 // Research & Projects
-export const projectHeadLine = "Research & Projects"
+export const projectHeadLine = "研究 & 项目经历"
 export const projectIntro = "Academic research and technical projects I've worked on."
 
 export const projects: Array<ProjectItemType> = [
