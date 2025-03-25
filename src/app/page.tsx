@@ -8,6 +8,7 @@ import { BlogCard } from '@/components/home/BlogCard'
 import { getAllBlogs, type BlogType } from '@/lib/blogs'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import { ActivityCard } from '@/components/home/ActivityCard'
+import GitHubSnake from '@/components/home/GitHubSnake'
 import { projectHeadLine, projectIntro, projects, blogHeadLine, blogIntro, techIcons } from '@/config/infoConfig'
 import { awards, awardsHeadLine, awardsIntro, activities, activitiesHeadLine, activitiesIntro } from '@/config/projects'
 import IconCloud from "@/components/ui/icon-cloud"
@@ -28,11 +29,15 @@ export default async function Home() {
             <p className="mt-6 text-xl text-muted-foreground">
               {introduction}
             </p>
-            <SocialLinks className='md:mt-24'/>
+            <SocialLinks className='md:mt-8'/>
           </div>
           <div className="relative flex size-full items-center justify-center overflow-hidden w-full px-20 md:px-0 md:w-2/3 ml-auto md:mr-8">
             <IconCloud iconSlugs={techIcons} />
           </div>
+        </div>
+        <div className="mt-6 border-t border-zinc-100 py-8 dark:border-zinc-700/40">
+          {/* <GithubContributions /> */}
+          <GitHubSnake />
         </div>
 
         {/* Awards */}
@@ -50,7 +55,6 @@ export default async function Home() {
             ))}
           </ul>
         </div>
-
         {/* Research & Projects */}
         <div className="mx-auto flex flex-col max-w-xl gap-6 lg:max-w-none my-4 py-8 border-t border-muted">
           <h2 className="flex flex-row items-center justify-start gap-2 text-xl font-semibold tracking-tight md:text-3xl opacity-80 mb-4">
