@@ -21,7 +21,7 @@ export type EducationItemType = {
     },
     {
       school: '福田中学',
-      major: '高中生',
+      major: '理科',
       logo: 'college',
       start: '2016',
       end: '2023'

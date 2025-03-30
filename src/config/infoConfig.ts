@@ -13,15 +13,15 @@ export const githubUsername = 'KeatonLi'
 // about page
 export const aboutMeHeadline = '我是谁?你该注意哪些事情'
 export const aboutParagraphs = [
-  "Coucou Les Amis! My name is Derek Hu. I'm from Hubei and an alumnus of BUPT, UChicago, and Tsinghua. I’ve been teaching Computer Science at SCLS since 2020.",
-  'Currently I am working on a new course called AI Camp, an innovative course where high school students create real-world products and startups while exploring the frontiers of AI.',
-  "I started this blog to share the insights I learn every day. Most blogs focus on education in Artificial Intelligence and general computer science, while others share the life lessons I've learned.",
+  "你好，朋友们！我叫德里克·胡。我来自湖北，是北京邮电大学、芝加哥大学和清华大学的校友。自2020年以来，我一直在上海协和双语高级中学教授计算机科学。",
+  '目前，我正在开发一门名为AI Camp的新课程，这是一门创新课程，高中生可以在探索人工智能前沿领域的同时，创建实际的产品和创业项目。',
+  "我开设这个博客是为了分享我每天学到的见解。大多数博客专注于人工智能教育和普通计算机科学，而其他博客则分享我学到的生活经验。",
 ]
 
 // blog
 export const blogHeadLine = "我在想什么."
 export const blogIntro =
-  "I've written something about AI, programming and life."
+  "我写了一些关于人工智能、编程和生活的内容。"
 
 // social links
 export type SocialLinkType = {
@@ -46,26 +46,31 @@ export const socialLinks: Array<SocialLinkType> = [
 
 // https://simpleicons.org/
 export const techIcons = [
-  'typescript',
+  'vuedotjs',
   'javascript',
-  'supabase',
-  'cloudflare',
   'java',
   'oracle',
   'mysql',
-  'react',
-  'nodedotjs',
-  'nextdotjs',
-  'prisma',
+  'mongodb',
+  'clickhouse',
+  'apacheflink',
+  'linux',
   'postgresql',
   'nginx',
-  'vercel',
   'docker',
-  'git',
+  'kubernetes',
+  'apachekafka',
+  'rabbitmq',
   'github',
-  'visualstudiocode',
-  'androidstudio',
-  'ios',
-  'apple',
-  'wechat',
+  'spring',
+  'python',
+  'golang',
+  'springboot',
+  'spring',
+  'redis',
+  'elasticsearch',
+  'git',
+  'jira',
+
+
 ]

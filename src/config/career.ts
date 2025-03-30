@@ -10,7 +10,7 @@ export type CareerItemType = {
   
 export const careerList: Array<CareerItemType> = [
     {
-      company: '名通科技有限公司',
+      company: '深圳市名通科技股份有限公司',
       title: 'Java 开发工程师',
       logo: 'coffee',
       start: '2025-03',

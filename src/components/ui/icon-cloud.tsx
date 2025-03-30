@@ -27,7 +27,7 @@ export const cloudProps: Omit<ICloud, "children"> = {
     imageScale: 2,
     activeCursor: "default",
     tooltip: "native",
-    initial: [0.1, -0.1],
+    initial: [0.01, -0.01],
     clickToFront: 500,
     tooltipDelay: 0,
     outlineColour: "#0000",
@@ -43,11 +43,11 @@ export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
   const minContrastRatio = theme === "dark" ? 2 : 1.2;
 
   return renderSimpleIcon({
-    icon,
-    bgHex,
-    fallbackHex,
-    minContrastRatio,
-    size: 42,
+    icon: icon,
+    bgHex: bgHex,
+    fallbackHex: fallbackHex,
+    minContrastRatio: minContrastRatio,
+    size: 50,
     aProps: {
       href: undefined,
       target: undefined,
