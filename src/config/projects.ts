@@ -10,28 +10,34 @@ export type ProjectItemType = {
 export type ActivityItemType = {
   name: string
   description: string
-  date: string
+  date?: string
   location: string
   link?: string
 }
 
 // Awards
-export const awardsHeadLine = "奖项与荣誉"
-export const awardsIntro = "对学术和职业成就的认可。"
+export const awardsHeadLine = "个人证件 & 奖项"
+export const awardsIntro = "个人证件和获得的奖项。"
 
 export const awards: Array<ActivityItemType> = [
   {
-    name: '优秀教师奖',
+    name: '软考中级-软件设计师',
     description: '',
-    date: '2024',
-    location: '上海协和双语高级中学',
+    date: '2025',
+    location: '深圳',
   },
   {
-    name: '追影奖',
+    name: '驾驶证',
     description: '',
-    date: '2023',
-    location: '上海青浦',
+    date: '2021',
+    location: '深圳',
   },
+  {
+    name: '英语四级',
+    description: '',
+    date: '2019',
+    location: '广东海洋大学',
+  }
 ]
 
 // Research & Projects
@@ -75,26 +81,24 @@ export const activitiesIntro = "个人兴趣和社区贡献。"
 
 export const activities: Array<ActivityItemType> = [
   {
-    name: 'Python Workshop',
+    name: '字节跳动青训营',
     description:
-      'Teaching basic Python programming concepts to beginners. Covering variables, control flow, and functions.',
-    date: '2024-02-24',
-    location: 'Shanghai',
+      '通过青训营学习Golang语言，并且写出简易的抖音服务器，包括用户注册、登录、视频投稿、视频流、评论、点赞等功能。',
+    date: '2022-02-24',
+    location: 'ShenZhen',
     link: 'https://example.com/python-workshop',
   },
   {
-    name: 'AI Ethics Discussion',
+    name: 'Leetcode 周赛参与者',
     description:
-      'A group discussion about the ethical implications of AI development and its impact on society.',
-    date: '2024-03-01',
-    location: 'Shanghai',
-    link: 'https://example.com/ai-ethics',
+      '参加Leetcode周赛，获得了多个奖项，包括Knight段位等。',
+    location: 'ShenZhen'
   },
   {
-    name: 'Code Review Session',
+    name: '掘金作者交流会',
     description:
-      'Helping students improve their coding skills through peer code review and best practices sharing.',
+      '参加了掘金作者交流会议，与其他作者分享了自己的经验和想法。',
     date: '2024-03-15',
-    location: 'Shanghai',
+    location: 'ShenZhen',
   },
 ]

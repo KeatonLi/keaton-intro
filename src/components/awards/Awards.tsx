@@ -12,7 +12,7 @@ export function Awards() {
               <div className="flex items-center justify-between">
                 <h3 className="font-medium">{award.name}</h3>
                 <span className="text-sm text-muted-foreground">
-                  {award.date}
+                  {award.date ? `${award.date}` : 'Up to Now'}
                 </span>
               </div>
               <p className="text-sm text-muted-foreground">
