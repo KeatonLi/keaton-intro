@@ -40,7 +40,7 @@ export const socialLinks: Array<SocialLinkType> = [
   {
     name: 'Bilibili',
     icon: 'bilibili',
-    href: 'https://space.bilibili.com/349721082',
+    href: 'https://space.bilibili.com/14909430',
   },
 ]
 

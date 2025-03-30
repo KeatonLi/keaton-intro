@@ -17,7 +17,13 @@ export function ProjectCard({ project, titleAs }: { project: ProjectItemType, ti
         <div className=''>
           <div className='flex flex-col sm:flex-row justify-center sm:justify-start items-start sm:items-center gap-4'>
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full">
-              <Favicon url={project.link.href} />
+              {project.icon ? (
+                <Image src={project.icon} alt={project.name} width={48} height={48} className="rounded-full" />
+              ) : (
+                <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center">
+                      <Favicon url={project.link.href} />
+                </div>
+              )}
             </div>
             <Component className="text-base font-semibold">
               {project.name}

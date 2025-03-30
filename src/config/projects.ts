@@ -4,6 +4,7 @@ export type ProjectItemType = {
   description: string
   link: { href: string; label: string }
   tags: string[]
+  icon?: string
 }
 
 export type ActivityItemType = {
@@ -39,28 +40,32 @@ export const projectIntro = "Academic research and technical projects I've worke
 
 export const projects: Array<ProjectItemType> = [
   {
-    name: '学生期末项目作品集',
-    description: '静态网站作品集',
-    link: { href: 'scls-cs.com', label: 'GitHub卡片' },
-    tags: ['Website', 'Next.js', 'TailwindCSS', 'DaisyUI', 'Portfolio']
+    name: '沃尔玛发票结算平台 - WAPP',
+    description: '该项目是由票易通公司运维开发，为沃尔玛给供应商使用的平台，有报表管理、发票管理、结算金额、索赔单管理等等，供应商将发票上传至平台，经过一系列解析、验真、匹配关系等操作，最后交给沃尔玛的SAP系统完成付款',
+    link: { href: 'xforceplus.com', label: 'GitHub卡片' },
+    tags: ['SpringBoot', 'Java', 'RabbitMQ'],
+    icon: '/images/icon/aibesttools.png'
   },
   {
-    name: '寻找DNA',
-    description: '2022上海协和双语高级中学编程马拉松',
-    link: { href: 'https://scls-cs.gitbook.io/scls-apcs-lab/lab5-dna', label: '编程马拉松' },
-    tags: ['Hackathon', 'Java']
+    name: '华阳大数据指标平台',
+    description: '工程造价数据管理平台（对标广联达指标网站）是建筑互联网领域',
+    link: { href: 'ibim.com.cn', label: '编程马拉松' },
+    tags: ['ElasticSearch', 'Java'],
+    icon: '/images/icon/capol.ico'
   },
   {
-    name: '德州扑克裁判',
-    description: '2024上海协和双语高级中学编程马拉松',
-    link: { href: 'https://onecompiler.com/challenges/42yf4n5yn/scls-hackathon', label: '编程马拉松' },
-    tags: ['Hackathon']
+    name: '消息分发平台',
+    description: '统一的接口发送各种类型消息，对消息生命周期全链路追踪。',
+    link: { href: '106.75.176.183:3001', label: '查看课程' },
+    tags: ['Kafka', 'Java', 'SpringBoot'],
+    icon: '/images/icon/austin.png'
   },
   {
-    name: 'AI Camp课程开发',
-    description: '为高中生开发了一套全面的人工智能课程，融入了实际项目和创业理念。',
-    link: { href: 'https://scls-cs.gitbook.io/ai-camp', label: '查看课程' },
-    tags: ['Education', 'AI']
+    name: '云帆Passm',
+    description: '微服务监控平台',
+    link: { href: 'mastercom.cn', label: '查看课程' },
+    tags: ['Kafka', 'Java', 'SpringBoot', 'ElasticSearch'],
+    icon: '/images/icon/mastercom.png'
   },
 ]
 
