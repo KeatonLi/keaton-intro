@@ -9,6 +9,7 @@ export const introduction =
   "你好！我是黎博凯，目前的职业是 Java 开发工程师，还会一点 Golang 与 Python 语言，爱好是羽毛球健身和打电子游戏."
 export const email = 'li_bo_kai@qq.com'
 export const githubUsername = 'KeatonLi'
+export const leetcodeUsername = 'keaton'
 
 // about page
 export const aboutMeHeadline = '我是谁?你该注意哪些事情'

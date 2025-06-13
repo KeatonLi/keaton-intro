@@ -9,10 +9,11 @@ import { getAllBlogs, type BlogType } from '@/lib/blogs'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import { ActivityCard } from '@/components/home/ActivityCard'
 import GitHubSnake from '@/components/home/GitHubSnake'
+import CodingBadges from '@/components/home/CodingBadges'
 import { projectHeadLine, projectIntro, projects, blogHeadLine, blogIntro, techIcons } from '@/config/infoConfig'
 import { awards, awardsHeadLine, awardsIntro, activities, activitiesHeadLine, activitiesIntro } from '@/config/projects'
 import IconCloud from "@/components/ui/icon-cloud"
-import { Award, Briefcase, Heart } from 'lucide-react'
+import { Award, Briefcase, Heart, Code } from 'lucide-react'
 
 export default async function Home() {
   let blogList = (await getAllBlogs()).slice(0, 4)
@@ -38,6 +39,18 @@ export default async function Home() {
         <div className="mt-6 border-t border-zinc-100 py-8 dark:border-zinc-700/40">
           {/* <GithubContributions /> */}
           <GitHubSnake />
+        </div>
+
+        {/* Coding Statistics */}
+        <div className="mx-auto flex flex-col max-w-xl gap-6 lg:max-w-none my-4 py-8 border-t border-muted">
+          <h2 className="flex flex-row items-center justify-start gap-2 text-xl font-semibold tracking-tight md:text-3xl opacity-80 mb-4">
+            <Code size={28}/>
+            编程统计
+          </h2>
+          <p className="text-base text-muted-foreground max-w-2xl mb-8">
+            展示我在 GitHub 和 LeetCode 平台上的编程活动和技术成长轨迹
+          </p>
+          <CodingBadges />
         </div>
 
         {/* Awards */}
