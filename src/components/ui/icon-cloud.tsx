@@ -65,19 +65,41 @@ type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 
 export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
   const [data, setData] = useState<IconData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const { theme } = useTheme();
 
   useEffect(() => {
-    fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
+    const cacheKey = `icon-cloud-${iconSlugs.join('-')}`;
+    const cachedData = localStorage.getItem(cacheKey);
+
+    if (cachedData) {
+      setData(JSON.parse(cachedData));
+      setIsLoading(false);
+    } else {
+      setIsLoading(true);
+      fetchSimpleIcons({ slugs: iconSlugs })
+        .then((newData) => {
+          setData(newData);
+          localStorage.setItem(cacheKey, JSON.stringify(newData));
+        })
+        .finally(() => setIsLoading(false));
+    }
   }, [iconSlugs]);
 
   const renderedIcons = useMemo(() => {
     if (!data) return null;
-
     return Object.values(data.simpleIcons).map((icon) =>
       renderCustomIcon(icon, theme || "light"),
     );
   }, [data, theme]);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center w-full pt-10 min-h-[300px]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900 dark:border-gray-100" />
+      </div>
+    );
+  }
 
   return (
     // @ts-ignore

@@ -65,13 +65,13 @@ export const techIcons = [
   'github',
   'spring',
   'python',
-  'golang',
+  'goland',
   'springboot',
   'spring',
   'redis',
   'elasticsearch',
   'git',
   'jira',
-
+  'prometheus'
 
 ]
