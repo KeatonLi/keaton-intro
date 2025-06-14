@@ -94,57 +94,203 @@ export default function CodingStats() {
         setLoading(true)
         setError(null)
         
+        console.log('开始获取 LeetCode 数据，用户名:', leetcodeUsername)
+        
         // 使用 alfa-leetcode-api 获取详细数据
         const baseUrl = 'https://alfa-leetcode-api.onrender.com'
         
-        const [profileRes, solvedRes, submissionRes, languageRes, skillRes, calendarRes] = await Promise.allSettled([
-          fetch(`${baseUrl}/${leetcodeUsername}`),
-          fetch(`${baseUrl}/${leetcodeUsername}/solved`),
-          fetch(`${baseUrl}/${leetcodeUsername}/submission?limit=10`),
-          fetch(`${baseUrl}/languageStats?username=${leetcodeUsername}`),
-          fetch(`${baseUrl}/skillStats/${leetcodeUsername}`),
-          fetch(`${baseUrl}/${leetcodeUsername}/calendar`)
-        ])
+        const endpoints = [
+          { name: 'profile', url: `${baseUrl}/${leetcodeUsername}` },
+          { name: 'solved', url: `${baseUrl}/${leetcodeUsername}/solved` },
+          { name: 'submission', url: `${baseUrl}/${leetcodeUsername}/submission?limit=10` },
+          { name: 'language', url: `${baseUrl}/languageStats?username=${leetcodeUsername}` },
+          { name: 'skill', url: `${baseUrl}/skillStats/${leetcodeUsername}` },
+          { name: 'calendar', url: `${baseUrl}/${leetcodeUsername}/calendar` }
+        ]
+        
+        // 添加备用 API 端点（使用不同的服务）
+        const fallbackEndpoints = [
+          { name: 'profile', url: `https://leetcode-stats-api.herokuapp.com/${leetcodeUsername}` }
+        ]
+        
+        console.log('请求的 API 端点:', endpoints)
+        
+        const [profileRes, solvedRes, submissionRes, languageRes, skillRes, calendarRes] = await Promise.allSettled(
+          endpoints.map(endpoint => fetch(endpoint.url))
+        )
+        
+        const results = [profileRes, solvedRes, submissionRes, languageRes, skillRes, calendarRes]
+        const resultNames = ['profile', 'solved', 'submission', 'language', 'skill', 'calendar']
+        
+        // 检查每个请求的状态
+        results.forEach((result, index) => {
+          if (result.status === 'rejected') {
+            console.error(`${resultNames[index]} 请求失败:`, result.reason)
+          } else if (!result.value.ok) {
+            console.error(`${resultNames[index]} 请求返回错误状态:`, result.value.status, result.value.statusText)
+          } else {
+            console.log(`${resultNames[index]} 请求成功`)
+          }
+        })
 
         // 处理 profile 数据
         if (profileRes.status === 'fulfilled' && profileRes.value.ok) {
-          const profileData = await profileRes.value.json()
-          setProfile(profileData)
+          try {
+            const profileData = await profileRes.value.json()
+            console.log('Profile 数据:', profileData)
+            setProfile(profileData)
+          } catch (err) {
+            console.error('解析 profile 数据失败:', err)
+          }
+        } else {
+          console.warn('Profile 数据获取失败')
         }
 
         // 处理 solved 数据
         if (solvedRes.status === 'fulfilled' && solvedRes.value.ok) {
-          const solvedData = await solvedRes.value.json()
-          setSolved(solvedData)
+          try {
+            const solvedData = await solvedRes.value.json()
+            console.log('Solved 数据:', solvedData)
+            setSolved(solvedData)
+          } catch (err) {
+            console.error('解析 solved 数据失败:', err)
+          }
+        } else {
+          console.warn('Solved 数据获取失败')
         }
 
         // 处理 submission 数据
         if (submissionRes.status === 'fulfilled' && submissionRes.value.ok) {
-          const submissionData = await submissionRes.value.json()
-          setSubmissions(submissionData.submission || [])
+          try {
+            const submissionData = await submissionRes.value.json()
+            console.log('Submission 数据:', submissionData)
+            setSubmissions(submissionData.submission || [])
+          } catch (err) {
+            console.error('解析 submission 数据失败:', err)
+          }
+        } else {
+          console.warn('Submission 数据获取失败')
         }
 
         // 处理 language 数据
         if (languageRes.status === 'fulfilled' && languageRes.value.ok) {
-          const languageData = await languageRes.value.json()
-          setLanguageStats(languageData.matchedUser?.languageProblemCount || [])
+          try {
+            const languageData = await languageRes.value.json()
+            console.log('Language 数据:', languageData)
+            setLanguageStats(languageData.matchedUser?.languageProblemCount || [])
+          } catch (err) {
+            console.error('解析 language 数据失败:', err)
+          }
+        } else {
+          console.warn('Language 数据获取失败')
         }
 
         // 处理 skill 数据
         if (skillRes.status === 'fulfilled' && skillRes.value.ok) {
-          const skillData = await skillRes.value.json()
-          setSkillStats(skillData.data?.matchedUser?.tagProblemCounts?.advanced || [])
+          try {
+            const skillData = await skillRes.value.json()
+            console.log('Skill 数据:', skillData)
+            setSkillStats(skillData.data?.matchedUser?.tagProblemCounts?.advanced || [])
+          } catch (err) {
+            console.error('解析 skill 数据失败:', err)
+          }
+        } else {
+          console.warn('Skill 数据获取失败')
         }
 
         // 处理 calendar 数据
         if (calendarRes.status === 'fulfilled' && calendarRes.value.ok) {
-          const calendarData = await calendarRes.value.json()
-          setCalendar(calendarData)
+          try {
+            const calendarData = await calendarRes.value.json()
+            console.log('Calendar 数据:', calendarData)
+            setCalendar(calendarData)
+          } catch (err) {
+            console.error('解析 calendar 数据失败:', err)
+          }
+        } else {
+          console.warn('Calendar 数据获取失败')
+        }
+        
+        // 检查是否有任何数据成功获取
+        const hasAnyData = profile || solved || submissions.length > 0 || languageStats.length > 0 || skillStats.length > 0 || calendar
+        if (!hasAnyData) {
+          console.warn('所有 API 请求都失败了，尝试备用 API')
+          
+          // 尝试备用 API
+          try {
+            console.log('尝试使用备用 API:', `https://leetcode-stats-api.herokuapp.com/${leetcodeUsername}`)
+            const fallbackResponse = await fetch(`https://leetcode-stats-api.herokuapp.com/${leetcodeUsername}`)
+            
+            if (fallbackResponse.ok) {
+              const fallbackData = await fallbackResponse.json()
+              console.log('备用 API 数据:', fallbackData)
+              
+              // 转换备用 API 数据格式以适配现有组件
+              const convertedProfile: LeetCodeProfile = {
+                username: fallbackData.name || leetcodeUsername,
+                name: fallbackData.name || '',
+                avatar: '',
+                ranking: fallbackData.ranking || 0,
+                reputation: 0,
+                gitHubUrl: '',
+                twitterUrl: '',
+                linkedINUrl: '',
+                profile: {
+                  userAvatar: '',
+                  realName: fallbackData.name || '',
+                  aboutMe: '',
+                  school: '',
+                  websites: [],
+                  countryName: '',
+                  company: '',
+                  jobTitle: '',
+                  skillTags: [],
+                  postViewCount: 0,
+                  postViewCountDiff: 0,
+                  reputation: 0,
+                  reputationDiff: 0,
+                  solutionCount: 0,
+                  solutionCountDiff: 0,
+                  categoryDiscussCount: 0,
+                  categoryDiscussCountDiff: 0
+                }
+              }
+              
+              const convertedSolved = {
+                solvedProblem: fallbackData.totalSolved || 0,
+                easySolved: fallbackData.easySolved || 0,
+                mediumSolved: fallbackData.mediumSolved || 0,
+                hardSolved: fallbackData.hardSolved || 0,
+                acceptanceRate: fallbackData.acceptanceRate || 0,
+                totalSubmissionNum: [{
+                  difficulty: 'All',
+                  count: fallbackData.totalSubmissions || 0,
+                  submissions: fallbackData.totalSubmissions || 0
+                }],
+                acSubmissionNum: [{
+                  difficulty: 'All',
+                  count: fallbackData.totalSolved || 0,
+                  submissions: fallbackData.totalSolved || 0
+                }]
+              }
+              
+              setProfile(convertedProfile)
+              setSolved(convertedSolved)
+              
+              console.log('备用 API 数据设置成功')
+            } else {
+              console.error('备用 API 也失败了:', fallbackResponse.status, fallbackResponse.statusText)
+              setError('无法获取 LeetCode 数据，请检查用户名是否正确或稍后重试')
+            }
+          } catch (fallbackError) {
+            console.error('备用 API 请求失败:', fallbackError)
+            setError('无法获取 LeetCode 数据，请检查网络连接或稍后重试')
+          }
         }
 
       } catch (error) {
-        console.error('Failed to fetch LeetCode data:', error)
-        setError('获取 LeetCode 数据失败')
+        console.error('获取 LeetCode 数据时发生错误:', error)
+        setError(`获取 LeetCode 数据失败: ${error instanceof Error ? error.message : '未知错误'}`)
       } finally {
         setLoading(false)
       }
