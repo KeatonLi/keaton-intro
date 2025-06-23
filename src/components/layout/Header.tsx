@@ -251,15 +251,15 @@ export function Header() {
         setProperty('--header-mb', `${-scrollY}px`)
       }
 
-      // if (top === 0 && scrollY > 0 && scrollY >= downDelay) {
-      //   setProperty('--header-inner-position', 'fixed')
-      //   removeProperty('--header-top')
-      //   removeProperty('--avatar-top')
-      // } else {
-      //   removeProperty('--header-inner-position')
-      //   setProperty('--header-top', '0px')
-      //   setProperty('--avatar-top', '0px')
-      // }
+      if (top === 0 && scrollY > 0 && scrollY >= downDelay) {
+        setProperty('--header-inner-position', 'fixed')
+        removeProperty('--header-top')
+        removeProperty('--avatar-top')
+      } else {
+        removeProperty('--header-inner-position')
+        setProperty('--header-top', '0px')
+        setProperty('--avatar-top', '0px')
+      }
     }
 
     function updateAvatarStyles() {
@@ -383,7 +383,7 @@ export function Header() {
         )}
         <div
           ref={headerRef}
-          className="top-0 z-10 h-16 pt-6"
+          className="top-0 z-10 h-20 pt-8"
           style={{
             position:
               'var(--header-position)' as React.CSSProperties['position'],

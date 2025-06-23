@@ -6,17 +6,17 @@ export * from './career'
 export const name = '黎博凯'
 export const headline = '别浪费天赋与热爱.'
 export const introduction =
-  "你好！我是黎博凯，目前的职业是 Java 开发工程师，还会一点 Golang 与 Python 语言，爱好是羽毛球健身和打电子游戏."
+  "你好！我是黎博凯，一名热爱技术的 Java 开发工程师。我专注于后端开发，同时也涉猎 Golang 和 React 技术栈。工作之余，我热衷于羽毛球运动和健身，也喜欢在游戏世界中探索和放松。我相信技术与生活的平衡，让每一天都充满活力与创造力。"
 export const email = 'li_bo_kai@qq.com'
 export const githubUsername = 'KeatonLi'
 export const leetcodeUsername = 'keaton'
 
 // about page
-export const aboutMeHeadline = '我是谁?你该注意哪些事情'
+export const aboutMeHeadline = '关于我 - 技术与生活的平衡者'
 export const aboutParagraphs = [
-  "你好，朋友们！我叫德里克·胡。我来自湖北，是北京邮电大学、芝加哥大学和清华大学的校友。自2020年以来，我一直在上海协和双语高级中学教授计算机科学。",
-  '目前，我正在开发一门名为AI Camp的新课程，这是一门创新课程，高中生可以在探索人工智能前沿领域的同时，创建实际的产品和创业项目。',
-  "我开设这个博客是为了分享我每天学到的见解。大多数博客专注于人工智能教育和普通计算机科学，而其他博客则分享我学到的生活经验。",
+  "你好！我是黎博凯，一名充满热情的 Java 开发工程师。我专注于后端开发领域，深耕 Spring 生态系统，同时也在 Golang 和 React 技术栈上不断探索和实践。",
+  '在技术之路上，我始终相信"别浪费天赋与热爱"这一理念。我热衷于构建高性能、可扩展的后端系统，擅长微服务架构设计和分布式系统开发。从数据库优化到容器化部署，我享受解决复杂技术挑战的过程。',
+  "工作之余，我是一个热爱生活的人。羽毛球场上挥洒汗水，健身房里挑战自我，游戏世界中放松心情 - 这些都是我保持工作与生活平衡的方式。我相信技术人不仅要有扎实的专业能力，更要有丰富的生活体验，这样才能在代码中注入更多的创造力和活力。",
 ]
 
 // blog
@@ -73,5 +73,4 @@ export const techIcons = [
   'git',
   'jira',
   'prometheus'
-
 ]
