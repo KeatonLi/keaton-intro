@@ -9,7 +9,6 @@ import { getAllBlogs, type BlogType } from '@/lib/blogs'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import { ActivityCard } from '@/components/home/ActivityCard'
 import GitHubSnake from '@/components/home/GitHubSnake'
-import CodingStats from '@/components/home/CodingStats'
 import { projectHeadLine, projectIntro, projects, blogHeadLine, blogIntro, techIcons } from '@/config/infoConfig'
 import { awards, awardsHeadLine, awardsIntro, activities, activitiesHeadLine, activitiesIntro } from '@/config/projects'
 import IconCloud from "@/components/ui/icon-cloud"
@@ -41,17 +40,6 @@ export default async function Home() {
           <GitHubSnake />
         </div>
 
-        {/* Coding Statistics */}
-        <div className="mx-auto flex flex-col max-w-xl gap-6 lg:max-w-none my-4 py-8 border-t border-muted">
-          <h2 className="flex flex-row items-center justify-start gap-2 text-xl font-semibold tracking-tight md:text-3xl opacity-80 mb-4">
-            <Code size={28}/>
-            编程统计
-          </h2>
-          <p className="text-base text-muted-foreground max-w-2xl mb-8">
-            展示我在 GitHub 和 LeetCode 平台上的编程活动和技术成长轨迹
-          </p>
-          <CodingStats />
-        </div>
 
         {/* Research & Projects */}
         <div className="mx-autåo flex flex-col max-w-xl gap-6 lg:max-w-none my-4 py-8 border-t border-muted">
