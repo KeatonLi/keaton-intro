@@ -10,25 +10,25 @@
       --card-foreground: 240 10% 3.9%;  /* 保持原来的深色文字 */
       --popover: 0 0% 100%;
       --popover-foreground: 240 10% 3.9%;
-      --primary: 142 76% 36%;      /* emerald-600 */
+      --primary: 200 85% 55%;      /* 天蓝色 */
       --primary-foreground: 0 0% 100%;
       --secondary: 240 4.8% 95.9%;
       --secondary-foreground: 240 5.9% 10%;
       --muted: 240 4.8% 95.9%;
       --muted-foreground: 240 3.8% 46.1%;
-      --accent: 240 4.8% 95.9%;
-      --accent-foreground: 240 5.9% 10%;
+      --accent: 200 70% 90%;       /* 浅天蓝色作为强调色 */
+      --accent-foreground: 200 85% 25%;
       --destructive: 0 84.2% 60.2%;
       --destructive-foreground: 0 0% 98%;
       --border: 240 5.9% 90%;
       --input: 240 5.9% 90%;
-      --ring: 142 76% 36%;
+      --ring: 200 85% 55%;
       --radius: 0.75rem;
-      --chart-1: 142 76% 36%;
-      --chart-2: 160 84% 39%;
-      --chart-3: 142 47% 55%;
-      --chart-4: 168 75% 45%;
-      --chart-5: 151 82% 41%;
+      --chart-1: 200 85% 55%;
+      --chart-2: 210 80% 60%;
+      --chart-3: 190 70% 65%;
+      --chart-4: 220 75% 50%;
+      --chart-5: 180 80% 60%;
     }
   
     .dark {
@@ -38,24 +38,24 @@
       --card-foreground: 0 0% 98%;  /* 保持原来的浅色文字 */
       --popover: 240 10% 3.9%;
       --popover-foreground: 0 0% 98%;
-      --primary: 142 84% 45%;      /* emerald-500 暗色模式 */
+      --primary: 200 80% 60%;      /* 天蓝色暗色模式 */
       --primary-foreground: 0 0% 100%;
       --secondary: 240 3.7% 15.9%;
       --secondary-foreground: 0 0% 98%;
       --muted: 240 3.7% 15.9%;
       --muted-foreground: 240 5% 64.9%;
-      --accent: 240 3.7% 15.9%;
-      --accent-foreground: 0 0% 98%;
+      --accent: 200 50% 25%;       /* 深天蓝色作为暗色强调色 */
+      --accent-foreground: 200 80% 80%;
       --destructive: 0 62.8% 30.6%;
       --destructive-foreground: 0 0% 98%;
       --border: 240 3.7% 15.9%;
       --input: 240 3.7% 15.9%;
-      --ring: 142 84% 45%;
-      --chart-1: 142 84% 45%;
-      --chart-2: 160 94% 45%;
-      --chart-3: 142 57% 65%;
-      --chart-4: 168 85% 55%;
-      --chart-5: 151 92% 51%;
+      --ring: 200 80% 60%;
+      --chart-1: 200 80% 60%;
+      --chart-2: 210 75% 65%;
+      --chart-3: 190 65% 70%;
+      --chart-4: 220 70% 55%;
+      --chart-5: 180 75% 65%;
     }
   }
   
