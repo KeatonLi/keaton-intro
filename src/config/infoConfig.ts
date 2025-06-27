@@ -4,25 +4,25 @@ export * from './career'
 
 // personal info
 export const name = '黎博凯'
-export const headline = '别浪费天赋与热爱.'
+export const headline = '技术驱动创新，热爱成就未来 --- 别浪费天赋与热爱'
 export const introduction =
-  "你好！我是黎博凯，一名热爱技术的 Java 开发工程师。我专注于后端开发，同时也涉猎 Golang 和 React 技术栈。工作之余，我热衷于羽毛球运动和健身，也喜欢在游戏世界中探索和放松。我相信技术与生活的平衡，让每一天都充满活力与创造力。"
+  "您好！我是黎博凯，一名专注于后端开发的 Java 工程师。我在 Spring 生态系统和微服务架构方面有着丰富的实践经验，同时也在 Golang 和 React 技术栈上持续精进。我致力于构建高性能、可扩展的系统解决方案，追求代码质量与技术创新的完美结合，与此同时我还是一名羽毛球和健身爱好者。"
 export const email = 'li_bo_kai@qq.com'
 export const githubUsername = 'KeatonLi'
 export const leetcodeUsername = 'keaton'
 
 // about page
-export const aboutMeHeadline = '关于我 - 技术与生活的平衡者'
+export const aboutMeHeadline = '关于我 - 专业技术与持续成长'
 export const aboutParagraphs = [
-  "你好！我是黎博凯，一名充满热情的 Java 开发工程师。我专注于后端开发领域，深耕 Spring 生态系统，同时也在 Golang 和 React 技术栈上不断探索和实践。",
-  '在技术之路上，我始终相信"别浪费天赋与热爱"这一理念。我热衷于构建高性能、可扩展的后端系统，擅长微服务架构设计和分布式系统开发。从数据库优化到容器化部署，我享受解决复杂技术挑战的过程。',
-  "工作之余，我是一个热爱生活的人。羽毛球场上挥洒汗水，健身房里挑战自我，游戏世界中放松心情 - 这些都是我保持工作与生活平衡的方式。我相信技术人不仅要有扎实的专业能力，更要有丰富的生活体验，这样才能在代码中注入更多的创造力和活力。",
+  "您好！我是黎博凯，一名专业的 Java 后端开发工程师。我在企业级应用开发方面拥有丰富经验，深度掌握 Spring 生态系统，并在 Golang 和 React 技术栈上持续探索与实践。",
+  "在技术发展道路上，我专注于构建高性能、高可用的后端系统，擅长微服务架构设计、分布式系统开发以及性能优化。从数据库设计到容器化部署，我致力于通过技术创新解决复杂的业务挑战，追求代码质量与系统稳定性的最佳平衡。",
+  "除了专业技术能力，我也注重个人全面发展。通过羽毛球运动保持身心健康，通过持续学习保持技术敏锐度。我相信优秀的技术人员不仅需要扎实的专业基础，更需要开阔的视野和持续学习的能力，这样才能在快速变化的技术环境中保持竞争力。",
 ]
 
 // blog
-export const blogHeadLine = "我在想什么."
+export const blogHeadLine = "技术思考与分享"
 export const blogIntro =
-  "我写了一些关于人工智能、编程和生活的内容。"
+  "分享关于软件开发、技术架构、人工智能以及个人成长的思考与实践经验。"
 
 // social links
 export type SocialLinkType = {

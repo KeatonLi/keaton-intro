@@ -18,7 +18,7 @@ export const careerList: Array<CareerItemType> = [
     },
     {
       company: '华阳国际城市科技有限公司',
-      title: '初级Java研发工程师',
+      title: 'Java研发工程师',
       logo: 'bank',
       start: '2023-07',
       end: '2024-12'

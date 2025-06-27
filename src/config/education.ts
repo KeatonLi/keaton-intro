@@ -24,6 +24,6 @@ export type EducationItemType = {
       major: '理科',
       logo: 'college',
       start: '2016',
-      end: '2023'
+      end: '2019'
     },
   ]
