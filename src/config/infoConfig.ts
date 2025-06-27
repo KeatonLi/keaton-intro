@@ -3,7 +3,7 @@ export * from './education'
 export * from './career'
 
 // personal info
-export const name = '黎博凯'
+export const name = '博凯的小站'
 export const headline = '技术驱动创新，热爱成就未来 --- 别浪费天赋与热爱'
 export const introduction =
   "您好！我是黎博凯，一名专注于后端开发的 Java 工程师。我在 Spring 生态系统和微服务架构方面有着丰富的实践经验，同时也在 Golang 和 React 技术栈上持续精进。我致力于构建高性能、可扩展的系统解决方案，追求代码质量与技术创新的完美结合，与此同时我还是一名羽毛球和健身爱好者。"
