@@ -367,10 +367,10 @@ export function Header() {
                         transform: 'var(--avatar-hi-transform)'
                       }}
                     >
-                      Hi,{' '}
+                      Hi, {' '}
                       <TypingAnimation
                         className="text-3xl md:text-6xl font-bold tracking-tight"
-                        text={`I'm ${name} `}
+                        text={`这里是${name} `}
                         duration={150}
                       />
                       👋
