@@ -15,6 +15,14 @@ export type ActivityItemType = {
   link?: string
 }
 
+export type PortfolioItemType = {
+  title: string
+  description: string
+  technologies: string[]
+  icon: React.ReactNode
+  highlights: string[]
+}
+
 // Awards
 export const awardsHeadLine = "个人证件 & 奖项"
 export const awardsIntro = "个人证件和获得的奖项。"
@@ -41,39 +49,55 @@ export const awards: Array<ActivityItemType> = [
 ]
 
 // Research & Projects
-export const projectHeadLine = "研究 & 项目经历"
-export const projectIntro = "Academic research and technical projects I've worked on."
+export const projectHeadLine = "作品集"
+export const projectIntro = "个人作品集展示"
 
-export const projects: Array<ProjectItemType> = [
+// Portfolio Items
+export const portfolioItems: Array<Omit<PortfolioItemType, 'icon'> & { iconName: string }> = [
   {
-    name: '沃尔玛发票结算平台 - WAPP',
-    description: '该项目是由票易通公司运维开发，为沃尔玛给供应商使用的平台，有报表管理、发票管理、结算金额、索赔单管理等等，供应商将发票上传至平台，经过一系列解析、验真、匹配关系等操作，最后交给沃尔玛的SAP系统完成付款',
-    link: { href: 'xforceplus.com', label: 'GitHub卡片' },
-    tags: ['SpringBoot', 'Java', 'RabbitMQ'],
-    icon: '/images/icon/aibesttools.png'
+    title: '分布式电商系统',
+    description: '基于 Spring Cloud 微服务架构的高并发电商平台，支持秒杀、订单处理、支付等核心功能。采用 Redis 缓存、RabbitMQ 消息队列、MySQL 主从分离等技术栈。',
+    technologies: ['Spring Boot', 'Spring Cloud', 'Redis', 'MySQL', 'RabbitMQ'],
+    iconName: 'Globe',
+    highlights: ['日处理订单量 10万+', '系统可用性 99.9%', '响应时间 < 200ms']
   },
   {
-    name: '华阳大数据指标平台',
-    description: '工程造价数据管理平台（对标广联达指标网站）是建筑互联网领域',
-    link: { href: 'ibim.com.cn', label: '编程马拉松' },
-    tags: ['ElasticSearch', 'Java'],
-    icon: '/images/icon/capol.ico'
+    title: '实时数据处理平台',
+    description: '基于 Apache Flink 的实时流处理系统，支持大规模数据实时计算和分析。集成 Kafka、ClickHouse 等组件，为业务决策提供实时数据支持。',
+    technologies: ['Apache Flink', 'Kafka', 'ClickHouse', 'Golang', 'Docker'],
+    iconName: 'Database',
+    highlights: ['处理 TPS 50万+', '毫秒级延迟', '支持复杂事件处理']
   },
   {
-    name: '消息分发平台',
-    description: '统一的接口发送各种类型消息，对消息生命周期全链路追踪。',
-    link: { href: '106.75.176.183:3001', label: '查看课程' },
-    tags: ['Kafka', 'Java', 'SpringBoot'],
-    icon: '/images/icon/austin.png'
+    title: '智能运维监控系统',
+    description: '基于 Prometheus + Grafana 的全链路监控平台，集成日志分析、性能监控、告警通知等功能。支持容器化部署和自动扩缩容。',
+    technologies: ['Prometheus', 'Grafana', 'Kubernetes', 'ELK Stack', 'Python'],
+    iconName: 'Server',
+    highlights: ['监控节点 1000+', '告警响应 < 1分钟', '自动化运维']
   },
   {
-    name: '云帆Passm',
-    description: '微服务监控平台',
-    link: { href: 'mastercom.cn', label: '查看课程' },
-    tags: ['Kafka', 'Java', 'SpringBoot', 'ElasticSearch'],
-    icon: '/images/icon/mastercom.png'
+    title: '高性能 API 网关',
+    description: '基于 Golang 开发的轻量级 API 网关，支持路由转发、限流熔断、认证鉴权等功能。具备高并发处理能力和低延迟特性。',
+    technologies: ['Golang', 'Redis', 'JWT', 'Docker', 'Nginx'],
+    iconName: 'Zap',
+    highlights: ['QPS 10万+', '平均延迟 < 10ms', '内存占用 < 100MB']
   },
+  {
+    title: '企业级权限管理系统',
+    description: '基于 RBAC 模型的细粒度权限控制系统，支持多租户、动态权限配置、审计日志等企业级功能。前后端分离架构设计。',
+    technologies: ['Spring Security', 'React', 'PostgreSQL', 'JWT', 'TypeScript'],
+    iconName: 'Shield',
+    highlights: ['支持万级用户', '细粒度权限控制', '完整审计追踪']
+  },
+  {
+    title: '代码质量分析平台',
+    description: '集成多种静态代码分析工具的质量管控平台，支持代码规范检查、安全漏洞扫描、技术债务分析等功能。与 CI/CD 流程深度集成。',
+    technologies: ['SonarQube', 'Jenkins', 'GitLab CI', 'Java', 'Shell'],
+    iconName: 'Code',
+    highlights: ['支持 20+ 语言', '集成 CI/CD', '自动化质量门禁']
+  }
 ]
+
 
 // Hobbies & Volunteer
 export const activitiesHeadLine = "爱好与志愿活动"
@@ -81,24 +105,20 @@ export const activitiesIntro = "个人兴趣和社区贡献。"
 
 export const activities: Array<ActivityItemType> = [
   {
-    name: '字节跳动青训营',
-    description:
-      '通过青训营学习Golang语言，并且写出简易的抖音服务器，包括用户注册、登录、视频投稿、视频流、评论、点赞等功能。',
-    date: '2022-02-24',
-    location: 'ShenZhen',
-    link: 'https://example.com/python-workshop',
+    name: '羽毛球运动',
+    description: '热爱羽毛球运动，定期参与俱乐部活动和比赛，通过运动保持身心健康。',
+    location: '深圳',
   },
   {
-    name: 'Leetcode 周赛参与者',
-    description:
-      '参加Leetcode周赛，获得了多个奖项，包括Knight段位等。',
-    location: 'ShenZhen'
+    name: '健身训练',
+    description: '坚持规律的健身训练，注重身体素质的提升和健康生活方式的维持。',
+    location: '深圳',
   },
   {
-    name: '掘金作者交流会',
-    description:
-      '参加了掘金作者交流会议，与其他作者分享了自己的经验和想法。',
-    date: '2024-03-15',
-    location: 'ShenZhen',
-  },
+    name: '技术分享',
+    description: '积极参与技术社区，分享开发经验和技术心得，帮助其他开发者成长。',
+    location: '线上/线下',
+  }
 ]
+
+

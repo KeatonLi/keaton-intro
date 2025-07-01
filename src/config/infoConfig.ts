@@ -24,6 +24,11 @@ export const blogHeadLine = "技术思考与分享"
 export const blogIntro =
   "分享关于软件开发、技术架构、人工智能以及个人成长的思考与实践经验。"
 
+// portfolio
+export const portfolioHeadLine = "作品集 - 技术创新与实践成果"
+export const portfolioIntro =
+  "展示我在软件开发、系统架构设计以及技术创新方面的代表性作品与实践成果。每个项目都体现了我对技术的深度理解和解决复杂问题的能力。"
+
 // social links
 export type SocialLinkType = {
   name: string
@@ -41,6 +46,31 @@ export const socialLinks: Array<SocialLinkType> = [
   {
     name: 'Bilibili',
     icon: 'bilibili',
+    href: 'https://space.bilibili.com/14909430',
+  },
+  {
+    name: 'juejin',
+    icon: 'discord',
+    href: 'https://space.bilibili.com/14909430',
+  },
+  {
+    name: 'juejin',
+    icon: 'wechat',
+    href: 'https://space.bilibili.com/14909430',
+  },
+  {
+    name: 'juejin',
+    icon: 'bsky',
+    href: 'https://space.bilibili.com/14909430',
+  },
+  {
+    name: 'juejin',
+    icon: 'coffee',
+    href: 'https://space.bilibili.com/14909430',
+  },
+    {
+    name: 'juejin',
+    icon: 'linkedin',
     href: 'https://space.bilibili.com/14909430',
   },
 ]

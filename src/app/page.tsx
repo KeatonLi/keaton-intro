@@ -6,16 +6,19 @@ import SocialLinks from '@/components/home/SocialLinks'
 import { headline, introduction } from '@/config/infoConfig'
 import { BlogCard } from '@/components/home/BlogCard'
 import { getAllBlogs, type BlogType } from '@/lib/blogs'
-import { ProjectCard } from '@/components/project/ProjectCard'
 import { ActivityCard } from '@/components/home/ActivityCard'
 import GitHubSnake from '@/components/home/GitHubSnake'
-import { projectHeadLine, projectIntro, projects, blogHeadLine, blogIntro, techIcons } from '@/config/infoConfig'
-import { awards, awardsHeadLine, awardsIntro, activities, activitiesHeadLine, activitiesIntro } from '@/config/projects'
+import { projectHeadLine, projectIntro, blogHeadLine, blogIntro, techIcons, portfolioHeadLine, portfolioIntro } from '@/config/infoConfig'
+import { awards, awardsHeadLine, awardsIntro, activitiesHeadLine, activitiesIntro } from '@/config/projects'
 import IconCloud from "@/components/ui/icon-cloud"
-import { Award, Briefcase, Heart, Code } from 'lucide-react'
+import { Award, Briefcase, Heart } from 'lucide-react'
+import { PortfolioCard, getPortfolioItemsWithIcons } from '@/components/portfolio/PortfolioCard'
+
+
 
 export default async function Home() {
   let blogList = (await getAllBlogs()).slice(0, 4)
+  const portfolioItemsWithIcons = getPortfolioItemsWithIcons()
 
   return (
     <>
@@ -44,22 +47,21 @@ export default async function Home() {
 
 
         {/* Research & Projects */}
-        <div className="mx-autåo flex flex-col max-w-xl gap-6 lg:max-w-none my-4 py-8 border-t border-muted">
+        <div className="mx-auto flex flex-col max-w-xl gap-6 lg:max-w-none my-4 py-8 border-t border-muted">
           <h2 className="flex flex-row items-center justify-start gap-2 text-xl font-semibold tracking-tight md:text-3xl opacity-80 mb-4">
             <Briefcase size={28} />
-            {projectHeadLine}
+            {portfolioHeadLine}
           </h2>
           <p className="text-base text-muted-foreground max-w-2xl mb-8">
-            {projectIntro}
+            {portfolioIntro}
           </p>
-          <ul
-            role="list"
-            className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3"
-          >
-            {projects.map((project) => (
-              <ProjectCard key={project.name} project={project} titleAs='h3' />
+          
+          {/* Portfolio Projects */}
+          <div className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+            {portfolioItemsWithIcons.map((item, index) => (
+              <PortfolioCard key={index} item={item} />
             ))}
-          </ul>
+          </div>
         </div>
 
         {/* Awards */}
@@ -89,7 +91,7 @@ export default async function Home() {
         </div>
 
 
-        {/* Hobbies & Volunteer */}
+        {/* Hobbies & Volunteer
         <div className="mx-auto flex flex-col max-w-xl gap-6 lg:max-w-none my-4 py-8 border-t border-muted">
           <h2 className="flex flex-row items-center justify-start gap-2 text-xl font-semibold tracking-tight md:text-3xl opacity-80 mb-4">
             <Heart size={28} />
@@ -106,7 +108,7 @@ export default async function Home() {
               <ActivityCard key={activity.name} activity={activity} titleAs='h3' />
             ))}
           </ul>
-        </div>
+        </div> */}
 
         {/* Blog Section */}
         <div className="mx-auto flex flex-col max-w-xl gap-6 py-8 my-8 lg:max-w-none border-t border-muted">
